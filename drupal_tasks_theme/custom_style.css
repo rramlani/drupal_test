@@ -1,0 +1,41 @@
+body{
+    color: rgb(18, 14, 241);
+}
+tr.drupal-taska1-class{
+    background-color: #e4e4e4;
+}
+tr.third-row{
+    background-color: rgb(131, 146, 142);
+}
+#sticky-header{
+    position: fixed;
+    top:160px;
+    /*position: -webkit-sticky;
+    position: sticky;*/
+}
+#sticky_content{
+    border: 0px solid;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    overflow-x: auto;
+    height: 60%;
+}
+.taska-3-ul {
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+}
+.taska-3-ul li  {
+    display: inline-block;
+    width: 33%;
+    height: 250px;
+    overflow: auto
+}
+@media (max-width: 960px) and (min-width: 501px) {
+    .taska-3-ul li { width: 50%; }
+}
+
+@media (max-width: 500px) {
+    .taska-3-ul li { width: 100%; }
+}    

@@ -1,0 +1,48 @@
+<?php
+
+function drupal_tasks_block_info() {
+  $blocks['task_b'] = array(
+    'info' => t('Recent nodes'),
+    'status' => 1, 
+    'region' => 'sidebar_first',
+    'theme' => 'drupal_tasks_theme',
+  );
+  return $blocks;
+}
+
+function drupal_tasks_block_view($delta = '') {
+   $block = array();
+   if ($delta == 'task_b') {
+     //drupal_add_js(drupal_get_path('modules', 'drupal_tasks') . '/taskb_1-js.js'), 'inline');
+     $block['subject'] = 'rrr';
+     $block['content'] = 'test';
+     //drupal_tasks_block_content();
+   }
+   return $block;
+}       
+
+function drupal_tasks_block_content() {
+  return date('m');
+}
+
+function drupal_tasks_views_api() {
+  return array(
+    'api' => '3.0',
+  );
+}
+function drupal_tasks_taskA_1() {
+    $path = drupal_get_path('module', 'drupal_tasks');
+    require_once $path . '/views/taskA_1.inc';
+}
+function drupal_tasks_views_default_views() {
+  $views = array();
+  $path = drupal_get_path('module', 'drupal_tasks') . '/views/*.inc';
+
+  foreach(glob($path) as $file) {
+    require_once $file;
+    $views[$view->name] = $view;
+    unset($view);
+  }
+
+  return $views;
+}

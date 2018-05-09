@@ -1,0 +1,58 @@
+/* A.4.1 */
+/* Preferred - targets all a elements with the class some-class*/
+a.some-class {}
+
+/* could be applied on any elements with the class some-class, not as specific */
+.some-class {}
+
+/* A.4.2 */
+/* not specific enough, will target any elements with class child-class as long as they are within an element with class parent-class*/
+.parent-class .child-class
+
+/*Preferred, targets all elements with class child-class that are direct descendents of elements with class parent-class*/
+.parent-class > .child-class
+
+.child-class--variant {...} 
+
+// A.4.3 
+
+/* redundant, parent selector not needed since id are unique*/
+.parent-class #child-id 
+
+
+/*Preferred, targets element with id child-id, regardless of where they are in the dom*/
+#child-id {...} 
+
+// A.4.4 
+
+/* not specific enough, match any a elements as long as they enclosed by a li which in turn is enclosed by ul element */
+ul li a,
+
+/* not specific enough, match any a elements as long as they enclosed by ul element */
+ul a, 
+
+/* Preferred */
+ul > li > a {..} 
+
+// A.4.5 
+
+/* Preferred, can be used to style any elements with input type submit, don't need to assign classes*/
+input[type="submit"]
+
+/* can only be used where class is explicitly set*/
+.submit-button {...} 
+
+// A.4.6 
+
+/* Preferred, targets the last li element with in a ul list*/
+ul li:last-child 
+
+/* can only be used where the class for the last li is set to last-child */
+ul li.last-child {...} 
+
+// A.4.7 
+
+/* Preferred, targets the second li element with in a ul list*/
+ul li:nth-child(2), 
+
+ul li.first + li {...}
